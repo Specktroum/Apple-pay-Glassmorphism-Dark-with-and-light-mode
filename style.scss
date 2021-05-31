@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+$DarkColor: #272727;
+$LightColor: white;
+$DarkText: black;
+$DarkFrameColor: #404040;
+$LightFrameColor: #292929;
+
+@keyframes scaleUp {
+  0% {transform: scale( 0.9 );}
+  20% {transform: scale( 1.1 );}
+  40% {transform: scale( 0.9 );}
+  60% {transform: scale( 1.1 );}
+  80% {transform: scale( 0.9 );}
+  100% {transform: scale( 0.9 );}
+}
+@keyframes Background {
+  0% {background-size: 100%;}
+  50% {background-size: 110%;}
+  100% {background-size: 100%;}
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $DarkColor;
+  color: $LightColor;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+  &.light {
+    background-color: $LightColor;
+    color: $DarkText;
+  }
+  * {
+    box-sizing: border-box;
+  }
+}
+.dark-light-mode-btn {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(39,39,39,1) 50%, rgba(255,255,255,1) 50%);
+  z-index: 99;
+  animation: scaleUp 1s infinite;
+}
+
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  .phone-container {
+    min-width: 310px;
+    min-height: 604px;
+    border-radius: 50px;
+    position: relative;
+    background: url('https://i.ibb.co/Htn9dzb/4fff3c27578a8de9e9ed0465cb48f0d1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    box-shadow: 0px 0px 19px -1px rgba(0,0,0,0.75);
+    animation: Background 5s infinite;
+    transition: all 0.2s ease-in-out;
+    &:after {
+      content: "";
+      overflow: hidden;
+      position: absolute;
+      width: calc(100% - 18px);
+      height: calc(100% - 18px);
+      border: 10px solid $DarkFrameColor;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: 50px;
+      z-index:20;
+    }
+    *{
+      transition: all 0.2s ease-in-out;
+    }
+    .ear-speaker {
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      height: 30px;
+      width: 150px;
+      transform: translatex(-50%);
+      background-color: $DarkFrameColor;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      z-index: 10;
+    }
+    .glassmorphism-1,
+    .glassmorphism-2,
+    .glassmorphism-3,
+    .glassmorphism-4 {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      height: 170px;
+      width: 90%;
+      border-radius: 10px;
+      transform: translatex(-50%);
+      background-color: rgba(0,0,0,0.4);
+      border: 2px solid rgba(0,0,0,0.5);
+      -webkit-backdrop-filter: blur(10px);
+      -moz-backdrop-filter: blur(10px);
+      -ms-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.7);
+      .apple-pay {
+        width: 50px;
+        height: auto;
+        position: absolute;
+        left: 10px;
+        top: 2px;
+        color: $LightColor;
+      }
+      
+    }
+    .glassmorphism-2,
+    .glassmorphism-3,
+    .glassmorphism-4 {
+      top: auto;
+      bottom: 7px;
+      height: 35px;
+      box-shadow: none;
+      transform: translatex(-50%) translatey(0%);
+      z-index: 5;
+    }
+    .glassmorphism-3{
+      width: 85%;
+      height: 47px;
+      transform: translatex(-50%) translatey(0%);
+      z-index: 4;
+    }
+    .glassmorphism-4{
+      width: 80%;
+      height: 59px;
+      transform: translatex(-50%) translatey(0%);
+      z-index: 3;
+    }
+    
+    .faceID {
+      width: 70px;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(50%) translateY(50%);
+      transform: translateX(-50%) translateY(-50%);
+      * {
+          stroke: #ffffff !important;
+        }
+    }
+    
+  &.light {
+    &:after {
+      border: 10px solid $LightFrameColor;
+    }
+    .ear-speaker {
+      background-color: $LightFrameColor;
+    }
+    .glassmorphism-1,
+    .glassmorphism-2,
+    .glassmorphism-3,
+    .glassmorphism-4 {
+      background-color: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.3);
+      .apple-pay {
+        color: $DarkColor;
+      }
+    }
+    .faceID {
+        * {
+          stroke: $DarkColor !important;
+        }
+      }
+  }
+}
+}
